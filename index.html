@@ -29,6 +29,7 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
 
   <!-- For language-->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -47,7 +48,62 @@
 	  .trans-section {
 		  margin: 100px;
 	  }
-  </style>
+	  @media (min-width: 600px) {
+        .plyr__video-wrapper::before {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                z-index: 10;
+                content: '';
+                height: 50px;
+                width: 120px;
+                background: url('images/Global Health Infra.png') no-repeat;
+                background-size: 120px auto, auto;
+            }
+        }
+        @media (max-width: 600px) {
+        .plyr__video-wrapper::before {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                z-index: 10;
+                content: '';
+                height: 40px;
+                width: 90px;
+                background: url('') no-repeat;
+                background-size: 90px auto, auto;
+            }
+        }
+		.js-player {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+    </style>
+</head>
+<script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const controls = [
+            'play-large',
+            'play',
+            'progress',
+            'current-time',
+            'duration',
+            'mute',
+            'volume',
+            'captions',
+            'settings',
+            'pip',
+            'airplay',
+            'fullscreen',
+        ];
+        const player = Plyr.setup('.js-player', {
+            controls
+        });
+        
+    });
+</script>
 
 </head>
 
@@ -352,6 +408,12 @@
 			</div>
 		</div>
 	</div>
+	
+	<video class="js-player" style="--plyr-color-main:  rgb(18, 239, 255); max-width: 640px; max-height: 480px;" poster="" >
+		<source src="global.mp4" type="video/mp4" size="480" />
+		<source src="global.mp4" type="video/mp4" size="720" />
+		<source src="global.mp4" type="video/mp4" size="1080" />
+	  </video>
 
 	<div class="container">
 		<div class="row justify-content-center">
@@ -562,7 +624,6 @@
     <script src="plugins/google-map/gmap.js"></script>
     
     <script src="js/script.js"></script>
-
   </body>
   
 <!-- Mirrored from demo.themefisher.com/Kainat Health/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Mar 2022 14:21:51 GMT -->
